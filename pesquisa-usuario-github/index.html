@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Pesquisa Usuário GitHub</title>
+</head>
+
+<body class="bg-light">
+  <header class="mt-5">
+    <div class="container text-center">
+      <h1>Pesquisa Usuário GitHub</h1>
+    </div>
+  </header>
+
+  <main class="mt-5">
+    <div class="container text-center">
+      <hr>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+        <input class="form-control form-control-lg" type="search" placeholder="Usuário" id="usuario">
+      </div>
+      <hr>
+      <div class="mt-5">
+        <script src="src/script.js"></script>
+        <div id="resultado"></div>
+        <div class="text-danger font-weight-bold" id="erro"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

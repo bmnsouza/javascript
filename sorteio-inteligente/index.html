@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Sorteio Inteligente</title>
+</head>
+
+<body class="bg-light">
+  <header class="mt-5">
+    <div class="container text-center">
+      <h1>Sorteio Inteligente</h1>
+    </div>
+  </header>
+
+  <main class="mt-5">
+    <div class="container text-center">
+      <hr>
+      <form id="sorteio" onsubmit="return realizarSorteio();">
+        <div class="input-group">
+          <input class="form-control form-control-lg" type="number" placeholder="Limite" min="1" max="99999" required id="limite">
+          <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" value="Sortear">
+          <button class="btn btn-warning btn-lg font-weight-bolder" type="button" onclick="apagarSorteio()" id="btnApagar">Apagar</button>
+        </div>
+      </form>
+      <hr>
+      <div id="secaoNumerosSorteados">
+        <div class="mt-5">
+          <h1>Último Número Sorteado</h1>
+          <h1 id="ultimoNumeroSorteado"></h1>
+        </div>
+        <hr>
+        <div class="mt-5 text-dark">
+          <h3>Números Sorteados</h3>
+          <h3 id="numerosSorteados"></h3>
+        </div>
+        <script src="src/script.js"></script>
+      </div>
+  </main>
+</body>
+
+</html>
