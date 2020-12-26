@@ -24,4 +24,4 @@ if (numerosArray.indexOf(numeroSorteado) < 0) {
 
 Meu principal objetivo era trabalhar com o **localStorage** no armazenamento dos números gerados randomicamente.
 
-_Para acessar o sistema, clique em [Sorteio Inteligente](https://bmnsouza.github.io/sorteio-inteligente/)_
+_Para acessar o sistema, clique em [Sorteio Inteligente](https://bmnsouza.github.io/estudos-javascript/sorteio-inteligente/index.html/)_
