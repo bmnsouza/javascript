@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="src/sorteio-nomes.css">
+  <title>Sorteio Nomes</title>
+</head>
+
+<body class="bg-light">
+  <header class="mt-5">
+    <div class="container text-center">
+      <h1>Sorteio Nomes</h1>
+    </div>
+  </header>
+
+  <main class="mt-5">
+    <div class="container text-center">
+      <hr>
+
+      <h3>Faça o upload do arquivo contendo os nomes</h3>
+      <input class="form-control form-control-lg" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
+      
+      <p>&nbsp;</p>
+
+      <h3>Participantes</h3>
+      <pre id="output"></pre>
+
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+      <form id="sorteio" onsubmit="return realizarSorteio();">
+        <div class="input-group">
+        </div>
+      </form>
+      <hr>
+      <div id="secaoNomesSorteados">
+        <div class="mt-5">
+          <h1>Último Nome Sorteado</h1>
+          <h1 id="ultimoNomeSorteado"></h1>
+        </div>
+        <hr>
+        <div class="mt-5 text-dark">
+          <h3>Nomes Sorteados</h3>
+          <h3 id="nomesSorteados"></h3>
+        </div>
+        <script src="src/sorteio-nomes.js"></script>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
