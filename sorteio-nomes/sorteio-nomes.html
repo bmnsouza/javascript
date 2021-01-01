@@ -9,47 +9,38 @@
   <title>Sorteio Nomes</title>
 </head>
 
-<body class="bg-light">
-  <header class="mt-5">
-    <div class="container text-center">
-      <h1>Sorteio Nomes</h1>
-    </div>
-  </header>
-
-  <main class="mt-5">
-    <div class="container text-center">
-      <hr>
-      <h3>Faça o upload do arquivo contendo os nomes</h3>
-      <table class="table">
-        <tr>
-          <td>
-            <form onsubmit="return realizarSorteio()">
-              <input class="form-control" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
-              <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" value="Sortear">
-              <button class="btn btn-warning btn-lg font-weight-bolder" type="button" onclick="apagarSorteio()">Apagar</button>
-            </form>
-          </td>
-          <td>
-            <textarea rows="3" cols="40" readonly id="textareaNomesArquivo"></textarea>
-          </td>
-        </tr>
-      </table>
-      <hr>
-      <div id="divSecaoNomesSorteados">
-        <div class="mt-5">
-          <h1>Último Nome Sorteado</h1>
-          <h1 id="h1UltimoNomeSorteado"></h1>
+<body class="container bg-light text-center">
+  <div class="card text-dark bg-light mb-3 mt-3" style="max-width: 72rem;">
+    <h3 class="card-header">Sorteio Nomes</h3>
+    <div class="card-body">
+      <h6 class="card-title">Faça o upload do arquivo contendo os nomes</h6>
+      <form onsubmit="return realizarSorteio()">
+        <div class="input-group">
+          <input class="form-control" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
+          <input class="btn btn-dark font-weight-bolder" type="submit" value="Sortear">
+          <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagarSorteio()">Apagar</button>
         </div>
-        <hr>
-        <div class="mt-5 text-dark">
-          <h4>
-            <strong><u>Nomes Sorteados</u></strong>
-            <em><small class="text-muted" id="smallNomesSorteados"></small></em>
-          </h4>
-        </div>
+      </form>
+      <div class="card-body">
+        <textarea class="form-control" placeholder="Nomes" readonly id="textareaNomesArquivo"></textarea>
       </div>
     </div>
-  </main>
+  </div>
+
+  <div class="card text-white bg-dark mb-3 mt-3" style="max-width: 72rem;" id="divSecaoUltimoNomeSorteado">
+    <h3 class="card-header">Último Nome Sorteado</h3>
+    <div class="card-body">
+      <h3 id="h3UltimoNomeSorteado"></h3>
+    </div>
+  </div>
+
+  <div class="card text-white bg-success mb-3 mt-3" style="max-width: 72rem;" id="divSecaoNomesSorteados">
+    <h4 class="card-header">Nomes Sorteados</h4>
+    <div class="card-body">
+      <p class="card-text" id="pNomesSorteados"></p>
+    </div>
+  </div>
+
   <script src="src/sorteio-nomes.js"></script>
 </body>
 

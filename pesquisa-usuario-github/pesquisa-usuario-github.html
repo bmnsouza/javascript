@@ -9,30 +9,26 @@
   <title>Pesquisa Usuário GitHub</title>
 </head>
 
-<body class="bg-light">
-  <header class="mt-5">
-    <div class="container text-center">
-      <h1>Pesquisa Usuário GitHub</h1>
-    </div>
-  </header>
+<body class="container bg-light text-center">
+  <div class="mt-5">
+    <h2>Pesquisa Usuário GitHub</h2>
+  </div>
 
-  <main class="mt-5">
-    <div class="container text-center">
-      <hr>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-search"></i></span>
-        </div>
-        <input class="form-control form-control-lg" type="search" placeholder="Usuário" id="inputUsuario">
+  <div class="mt-5">
+    <hr>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
       </div>
-      <hr>
-      <div class="mt-5">
-        <script src="src/pesquisa-usuario-github.js"></script>
-        <div id="divResultado"></div>
-        <div class="text-danger font-weight-bold" id="divErro"></div>
-      </div>
+      <input class="form-control" type="search" placeholder="Usuário" id="inputUsuario">
     </div>
-  </main>
+    <hr>
+    <div class="mt-5">
+      <script src="src/pesquisa-usuario-github.js"></script>
+      <div id="divResultado"></div>
+      <div class="text-danger font-weight-bold" id="divErro"></div>
+    </div>
+  </div>
 </body>
 
 </html>

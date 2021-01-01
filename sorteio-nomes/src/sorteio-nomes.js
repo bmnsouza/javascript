@@ -11,9 +11,9 @@ textareaNomesArquivo.innerHTML = localStorage.getItem('storageNomesArquivo')
 if (storageNomesSorteados.length == 0) {
   naoExibirElementos()
 } else {
-  document.getElementById('h1UltimoNomeSorteado').innerHTML = storageNomesSorteados.slice(-1)
+  document.getElementById('h3UltimoNomeSorteado').innerHTML = storageNomesSorteados.slice(-1)
   storageNomesSorteados.forEach(element => {
-    document.getElementById('smallNomesSorteados').innerHTML += `<br>${element}`
+    document.getElementById('pNomesSorteados').innerHTML += `${element}<br>`
   })
 }
 
@@ -21,6 +21,7 @@ if (storageNomesSorteados.length == 0) {
 // Não exibe a seção nomes sorteados
 function naoExibirElementos() {
   textareaNomesArquivo.innerHTML = ''
+  document.getElementById('divSecaoUltimoNomeSorteado').style.display = 'none'
   document.getElementById('divSecaoNomesSorteados').style.display = 'none'
 }
 
