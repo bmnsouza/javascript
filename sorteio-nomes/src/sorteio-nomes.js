@@ -55,7 +55,7 @@ async function carregarArquivo(file) {
 
 
 // Realiza o sorteio
-function realizarSorteio() {
+function sortear() {
   // Verifica se ainda há nome para sortear
   if (storageNomesNaoSorteados.length == 0) {
     alert(`Faça o upload do arquivo para realizar o sorteio`)
@@ -76,7 +76,7 @@ function realizarSorteio() {
 
 
 // Apaga os dados do sorteio
-function apagarSorteio() {
+function apagar() {
   let resposta = confirm('Deseja apagar as informações do sorteio?')
 
   if (resposta) {

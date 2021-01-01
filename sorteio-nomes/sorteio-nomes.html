@@ -14,11 +14,11 @@
     <h3 class="card-header">Sorteio Nomes</h3>
     <div class="card-body">
       <h6 class="card-title">Faça o upload do arquivo contendo os nomes</h6>
-      <form onsubmit="return realizarSorteio()">
+      <form onsubmit="return sortear()">
         <div class="input-group">
           <input class="form-control" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
           <input class="btn btn-dark font-weight-bolder" type="submit" value="Sortear">
-          <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagarSorteio()">Apagar</button>
+          <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagar()">Apagar</button>
         </div>
       </form>
       <div class="card-body">

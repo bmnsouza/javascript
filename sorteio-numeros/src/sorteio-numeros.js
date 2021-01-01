@@ -5,11 +5,12 @@ let storageNumeros = localStorage.getItem('storageNumeros') ? JSON.parse(localSt
 
 // Obtém elementos da página
 let inputLimite = document.getElementById('inputLimite')
-
+inputLimite.value = storageLimite
 
 // Função responsável por limpar o campo Limite, ocultar o botão Apagar e a seção dos números sorteados
 function ocultarNumerosSorteados() {
   inputLimite.value = ''
+  document.getElementById('divSecaoUltimoNumeroSorteado').style.display = 'none'
   document.getElementById('divSecaoNumerosSorteados').style.display = 'none'
 }
 
@@ -18,27 +19,25 @@ function ocultarNumerosSorteados() {
 if (storageNumeros.length == 0) {
   ocultarNumerosSorteados()
 } else {
-  inputLimite.value = storageLimite
-
-  document.getElementById('h1UltimoNumeroSorteado').innerHTML = storageNumeros.slice(-1)
+  // Exibe o último número sorteado
+  document.getElementById('h3UltimoNumeroSorteado').innerHTML = storageNumeros.slice(-1)
 
   // Exibe até 5 números sorteados por linha
-  let h3NumerosSorteados = document.getElementById('h3NumerosSorteados')
+  let pNumerosSorteados = document.getElementById('pNumerosSorteados')
   for (let i = 0; i < storageNumeros.length; i++) {
     if ((i != 0) && (i % 5 == 0)) {
-      h3NumerosSorteados.innerHTML += `<br>${storageNumeros[i]}`
+      pNumerosSorteados.innerHTML += `<br>${storageNumeros[i]}`
     } else if (i == 0) {
-      h3NumerosSorteados.innerHTML += storageNumeros[i]
+      pNumerosSorteados.innerHTML += storageNumeros[i]
     } else {
-      h3NumerosSorteados.innerHTML += ` - ${storageNumeros[i]}`
+      pNumerosSorteados.innerHTML += ` - ${storageNumeros[i]}`
     }
   }
 }
 
 
-
 // Realiza o sorteio
-function realizarSorteio() {
+function sortear() {
   // Verifica se a quantidade de números sorteados já alcançou o limite informado
   if (storageNumeros.length >= inputLimite.value) {
     alert(`O sorteio já alcançou o limite de números sorteados (${Number(inputLimite.value)}). Para continuar, aumente o limite.`)
@@ -65,7 +64,7 @@ function realizarSorteio() {
 
 
 // Apagar os dados do sorteio
-function apagarSorteio() {
+function apagar() {
   let resposta = confirm('Deseja apagar as informações do sorteio?')
 
   if (resposta) {

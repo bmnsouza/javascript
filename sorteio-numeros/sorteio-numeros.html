@@ -9,37 +9,34 @@
   <title>Sorteio Números</title>
 </head>
 
-<body class="bg-light">
-  <header class="mt-5">
-    <div class="container text-center">
-      <h2>Sorteio Números</h2>
-    </div>
-  </header>
-
-  <main class="mt-5">
-    <div class="container text-center">
-      <hr>
-      <form onsubmit="return realizarSorteio()">
+<body class="container bg-light text-center">
+  <div class="card text-dark bg-light mb-3 mt-3" style="max-width: 72rem;">
+    <h3 class="card-header">Sorteio Números</h3>
+    <div class="card-body">
+      <form onsubmit="return sortear()">
         <div class="input-group">
           <input class="form-control" type="number" placeholder="Limite" min="1" max="99999" required id="inputLimite">
-          <input class="btn btn-dark font-weight-bolder" type="submit" value="Sortear" id="inputSortear">
-          <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagarSorteio()" id="buttonApagar">Apagar</button>
+          <input class="btn btn-dark font-weight-bolder" type="submit" value="Sortear">
+          <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagar()">Apagar</button>
         </div>
       </form>
-      <hr>
-      <div id="divSecaoNumerosSorteados">
-        <div class="mt-5">
-          <h1>Último Número Sorteado</h1>
-          <h1 id="h1UltimoNumeroSorteado"></h1>
-        </div>
-        <hr>
-        <div class="mt-5 text-dark">
-          <h3>Números Sorteados</h3>
-          <h3 id="h3NumerosSorteados"></h3>
-        </div>
-      </div>
     </div>
-  </main>
+  </div>
+
+  <div class="card text-white bg-dark mb-3 mt-3" style="max-width: 72rem;" id="divSecaoUltimoNumeroSorteado">
+    <h3 class="card-header">Último Número Sorteado</h3>
+    <div class="card-body">
+      <h3 id="h3UltimoNumeroSorteado"></h3>
+    </div>
+  </div>
+
+  <div class="card text-white bg-success mb-3 mt-3" style="max-width: 72rem;" id="divSecaoNumerosSorteados">
+    <h4 class="card-header">Números Sorteados</h4>
+    <div class="card-body">
+      <p class="card-text" id="pNumerosSorteados"></p>
+    </div>
+  </div>
+
   <script src="src/sorteio-numeros.js"></script>
 </body>
 
