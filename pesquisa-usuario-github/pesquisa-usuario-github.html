@@ -10,21 +10,22 @@
 </head>
 
 <body class="container bg-light text-center">
-  <div class="mt-5">
-    <h2>Pesquisa Usuário GitHub</h2>
+  <div class="card text-dark bg-light mb-3 mt-3" style="max-width: 72rem;">
+    <h3 class="card-header">Pesquisa Usuário GitHub</h3>
+    <div class="card-body">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+        <input class="form-control" type="search" placeholder="Usuário" id="inputUsuario">
+      </div>
+    </div>
   </div>
 
-  <div class="mt-5">
-    <hr>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fa fa-search"></i></span>
-      </div>
-      <input class="form-control" type="search" placeholder="Usuário" id="inputUsuario">
-    </div>
-    <hr>
-    <div class="mt-5">
-      <script src="src/pesquisa-usuario-github.js"></script>
+  <script src="src/pesquisa-usuario-github.js"></script>
+
+  <div class="card text-dark bg-light mb-3 mt-3" style="max-width: 72rem;">
+    <div class="card-body">
       <div id="divResultado"></div>
       <div class="text-danger font-weight-bold" id="divErro"></div>
     </div>
