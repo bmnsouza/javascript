@@ -11,7 +11,7 @@ let ultimoNumeroSorteado = document.getElementById('ultimoNumeroSorteado')
 let numerosSorteados = document.getElementById('numerosSorteados')
 
 
-// Função responsável por Limpar o campo Limite, ocultar o botão Apagar e a seção dos números sorteados
+// Função responsável por limpar o campo Limite, ocultar o botão Apagar e a seção dos números sorteados
 function ocultarNumerosSorteados() {
   limite.value = ''
   btnApagar.style.visibility = 'hidden'
@@ -39,6 +39,7 @@ if (numerosStorage.length > 0) {
 } else {
   ocultarNumerosSorteados()
 }
+
 
 
 // Função responsável por realizar o sorteio

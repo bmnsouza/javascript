@@ -19,7 +19,7 @@
   <main class="mt-5">
     <div class="container text-center">
       <hr>
-      <form id="sorteio" onsubmit="return realizarSorteio();">
+      <form id="sorteio" onsubmit="return realizarSorteio()">
         <div class="input-group">
           <input class="form-control form-control-lg" type="number" placeholder="Limite" min="1" max="99999" required id="limite">
           <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" value="Sortear">
@@ -37,10 +37,10 @@
           <h3>Números Sorteados</h3>
           <h3 id="numerosSorteados"></h3>
         </div>
-        <script src="src/sorteio-numeros.js"></script>
       </div>
     </div>
   </main>
+  <script src="src/sorteio-numeros.js"></script>
 </body>
 
 </html>
