@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Circle Frame Negative MT";
+  src: url("Circle-Frame-Negative-MT.ttf");
+}
+
+#ultimoNumeroSorteado {
+  font-family: "Circle Frame Negative MT";
+  font-size: 60pt;
+}

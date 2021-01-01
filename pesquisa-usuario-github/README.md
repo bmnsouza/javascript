@@ -5,4 +5,4 @@ Desenvolvi este sistema para aprender mais sobre JavaScript, CSS e HTML.
 
 Meu principal objetivo era trabalhar com **API REST** utilizando função assíncrona.
 
-_Para acessar o sistema, clique em [Pesquisa Usuário GitHub](https://bmnsouza.github.io/estudos-javascript/pesquisa-usuario-github/estudos-javascript/index.html/)_
+_Para acessar o sistema, clique em [Pesquisa Usuário GitHub](https://bmnsouza.github.io/javascript/pesquisa-usuario-github/index.html)_

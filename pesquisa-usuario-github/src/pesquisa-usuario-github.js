@@ -1,17 +1,17 @@
-const user = document.getElementById('usuario')
+const inputUsuario = document.getElementById('inputUsuario')
 
 async function getGitHubUser() {
   try {
-    let resultado = document.getElementById('resultado')
-    resultado.innerHTML = ''
+    let divResultado = document.getElementById('divResultado')
+    divResultado.innerHTML = ''
     
-    let erro = document.getElementById('erro')
-    erro.innerHTML = ''
+    let divErro = document.getElementById('divErro')
+    divErro.innerHTML = ''
  
-    if (user.value.trim() === '') {
-      erro.innerHTML = 'Informe o usuário.'
+    if (inputUsuario.value.trim() === '') {
+      divErro.innerHTML = 'Informe o usuário'
     } else {
-      const response = await fetch(`https://api.github.com/users/${usuario.value}`)
+      const response = await fetch(`https://api.github.com/users/${inputUsuario.value}`)
 
       if (!response.ok) {
         throw Error(response.status)
@@ -84,17 +84,17 @@ async function getGitHubUser() {
             </tbody>
           </table>
           `
-        resultado.innerHTML = resultadoHTML
+        divResultado.innerHTML = resultadoHTML
       }
     }
-  } catch (error) {
-    console.log(error)
-    erro.innerHTML = 'Não foi possível encontrar o usuário informado.'
+  } catch (err) {
+    console.log(err)
+    divErro.innerHTML = 'Não foi possível encontrar o usuário informado'
   }
 }
 
 function debounce(cb, interval, immediate) {
-  let timeout
+  let timeout = null
 
   return function () {
     let context = this
@@ -118,4 +118,4 @@ function debounce(cb, interval, immediate) {
   }
 }
 
-user.onkeypress = debounce(getGitHubUser, 1000)
+inputUsuario.onkeypress = debounce(getGitHubUser, 1000)

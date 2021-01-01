@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "KG Defying Gravity";
+  src: url("KGDefyingGravity.ttf");
+}
+
+#h1UltimoNomeSorteado {
+  font-family: "KG Defying Gravity";
+  font-size: 60pt;
+}
