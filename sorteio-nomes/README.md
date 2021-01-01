@@ -1,11 +1,15 @@
-# sorteio-inteligente
-Desenvolvi este sistema para aprender mais sobre JavaScript, CSS e HTML.
+# sorteio-nomes
+Desenvolvi este sistema para aprender mais sobre _JavaScript_, _CSS_ e _HTML_.
 
-**Sorteio Inteligente** gera números aleatórios utilizando a biblioteca random do JavaScript.
+**Sorteio Nomes** faz upload do arquivo texto contendo nomes para realizar o sorteio.
+
+Cada nome deverá estar em uma linha do arquivo para que o sistema armazene corretamente todos os nomes.
+
+O sistema utiliza a biblioteca `Math.random()` do _JavaScript_ para gerar um número aleatório a cada clique do botão Sortear.
 
 ``` js
-// Gera um número aleatório de 1 até o limite informado.
-let numeroSorteado = Math.floor(Math.random() * limite.value + 1);
+// Gera um número aleatório de 0 até o total de nomes não sorteados
+let indice = Math.floor(Math.random() * storageNomesNaoSorteados.length)
 ```
 
 O algoritmo verifica se o número gerado já existe (armazenado em um array no localStorage) e recursivamente gera o próximo número até encontrar um não repetido.
@@ -22,6 +26,4 @@ if (numerosArray.indexOf(numeroSorteado) < 0) {
 }
 ```
 
-Meu principal objetivo era trabalhar com o **localStorage** no armazenamento dos números gerados randomicamente.
-
-_Para acessar o sistema, clique em [Sorteio Inteligente](https://bmnsouza.github.io/estudos-javascript/sorteio-inteligente/index.html/)_
+_Para acessar o sistema, clique em [Sorteio Nomes](https://bmnsouza.github.io/javascript/sorteio-nomes/sorteio-nomes.html)_

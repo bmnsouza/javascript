@@ -1,8 +1,6 @@
 # pesquisa-usuario-github
-Desenvolvi este sistema para aprender mais sobre JavaScript, CSS e HTML.
+Desenvolvi este sistema para aprender mais sobre _JavaScript_, _CSS_ e _HTML_.
 
-**Pesquisa Usuário GitHub** utiliza a API REST de usuários do GitHub para pesquisar o usuário.
+**Pesquisa Usuário GitHub** utiliza a _API REST_ de usuários do GitHub para pesquisar o usuário utilizando função assíncrona.
 
-Meu principal objetivo era trabalhar com **API REST** utilizando função assíncrona.
-
-_Para acessar o sistema, clique em [Pesquisa Usuário GitHub](https://bmnsouza.github.io/javascript/pesquisa-usuario-github/index.html)_
+_Para acessar o sistema, clique em [Pesquisa Usuário GitHub](https://bmnsouza.github.io/javascript/pesquisa-usuario-github/pesquisa-usuario-github.html)_
