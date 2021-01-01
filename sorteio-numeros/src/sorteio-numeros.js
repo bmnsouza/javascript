@@ -69,8 +69,10 @@ function apagarSorteio() {
   let resposta = confirm('Deseja apagar as informações do sorteio?')
 
   if (resposta) {
-    localStorage.clear()
-    storageNumeros = []
     ocultarNumerosSorteados()
+    storageLimite = 0
+    storageNumeros = []
+    localStorage.removeItem('storageLimite')
+    localStorage.removeItem('storageNumeros')
   }
 }
