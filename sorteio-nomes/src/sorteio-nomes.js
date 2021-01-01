@@ -80,9 +80,10 @@ function apagarSorteio() {
 
   if (resposta) {
     naoExibirElementos()
-    localStorage.clear()
     storageNomesArquivo = null
     storageNomesSorteados = []
     storageNomesNaoSorteados = []
+    localStorage.removeItem('storageNomesSorteados')
+    localStorage.removeItem('storageNomesNaoSorteados')
   }
 }
