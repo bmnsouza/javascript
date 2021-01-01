@@ -19,23 +19,23 @@
   <main class="mt-5">
     <div class="container text-center">
       <hr>
-      <form id="sorteio" onsubmit="return realizarSorteio()">
+      <form onsubmit="return realizarSorteio()">
         <div class="input-group">
-          <input class="form-control form-control-lg" type="number" placeholder="Limite" min="1" max="99999" required id="limite">
-          <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" value="Sortear">
-          <button class="btn btn-warning btn-lg font-weight-bolder" type="button" onclick="apagarSorteio()" id="btnApagar">Apagar</button>
+          <input class="form-control form-control-lg" type="number" placeholder="Limite" min="1" max="99999" required id="inputLimite">
+          <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" value="Sortear" id="inputSortear">
+          <button class="btn btn-warning btn-lg font-weight-bolder" type="button" onclick="apagarSorteio()" id="buttonApagar">Apagar</button>
         </div>
       </form>
       <hr>
-      <div id="secaoNumerosSorteados">
+      <div id="divSecaoNumerosSorteados">
         <div class="mt-5">
           <h1>Último Número Sorteado</h1>
-          <h1 id="ultimoNumeroSorteado"></h1>
+          <h1 id="h1UltimoNumeroSorteado"></h1>
         </div>
         <hr>
         <div class="mt-5 text-dark">
           <h3>Números Sorteados</h3>
-          <h3 id="numerosSorteados"></h3>
+          <h3 id="h3NumerosSorteados"></h3>
         </div>
       </div>
     </div>

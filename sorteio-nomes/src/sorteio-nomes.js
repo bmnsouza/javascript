@@ -1,51 +1,52 @@
-// Obtém os valores armazenados no localStorage
-let nomesSorteadosStorage = localStorage.getItem('nomesSorteadosStorage') ? JSON.parse(localStorage.getItem('nomesSorteadosStorage')) : []
-let nomesNaoSorteadosStorage = localStorage.getItem('nomesNaoSorteadosStorage') ? JSON.parse(localStorage.getItem('nomesNaoSorteadosStorage')) : []
+// Obtém valores armazenados no localStorage
+let storageNomesSorteados = localStorage.getItem('storageNomesSorteados') ? JSON.parse(localStorage.getItem('storageNomesSorteados')) : []
+let storageNomesNaoSorteados = localStorage.getItem('storageNomesNaoSorteados') ? JSON.parse(localStorage.getItem('storageNomesNaoSorteados')) : []
 
-// Obtém os elementos da página
-let secaoNomesSorteados = document.getElementById('secaoNomesSorteados')
-let nomesSorteados = document.getElementById('nomesSorteados')
-let nomesArquivo = document.getElementById('nomesArquivo')
-
-
-function ocultar() {
-  nomesArquivo.innerHTML = ''
-  secaoNomesSorteados.style.display = 'none'
-}
+// Obtém elementos da página
+let textareaNomesArquivo = document.getElementById('textareaNomesArquivo')
+textareaNomesArquivo.innerHTML = localStorage.getItem('storageNomesArquivo')
 
 
-// Exibe os nomes sorteados
-if (nomesSorteadosStorage.length == 0) {
-  ocultar()
+// Verifica se existe nome sorteado para exibir
+if (storageNomesSorteados.length == 0) {
+  naoExibirElementos()
 } else {
-  document.getElementById('ultimoNomeSorteado').innerHTML = nomesSorteadosStorage.slice(-1)
-  nomesSorteadosStorage.forEach(element => {
-    nomesSorteados.innerHTML += `<br>${element}`
+  document.getElementById('h1UltimoNomeSorteado').innerHTML = storageNomesSorteados.slice(-1)
+  storageNomesSorteados.forEach(element => {
+    document.getElementById('smallNomesSorteados').innerHTML += `<br>${element}`
   })
 }
 
-nomesArquivo.innerHTML = localStorage.getItem('nomesArquivoStorage')
+
+// Não exibe a seção nomes sorteados
+function naoExibirElementos() {
+  textareaNomesArquivo.innerHTML = ''
+  document.getElementById('divSecaoNomesSorteados').style.display = 'none'
+}
+
 
 // Função responsável por carregar o arquivo
 async function carregarArquivo(file) {
   if (file.size <= 3) {
-    alert('>>>>> Por gentileza, faça o upload do arquivo de no mínimo 3 bytes <<<<<')
+    alert('Por gentileza, faça o upload do arquivo de no mínimo 3 bytes')
     return false
   } else if (file.size > 5000) {
-    alert('>>>>> Por gentileza, faça o upload do arquivo de no máximo 5 KB <<<<<')
+    alert('Por gentileza, faça o upload do arquivo de no máximo 5 KB')
     return false
   } else {
     try {
+      // Obtém os nomes contidos no arquivo, armazena-os no localStorage e exibe-os no textareaNomesArquivo
       let nomes = await file.text()
-      nomesNaoSorteadosStorage = nomes.split('\n')
-      localStorage.setItem('nomesNaoSorteadosStorage', JSON.stringify(nomesNaoSorteadosStorage))
+      localStorage.setItem('storageNomesArquivo', nomes)
+      textareaNomesArquivo.innerHTML = nomes
       
-      localStorage.setItem('nomesArquivoStorage', nomes)
-      nomesArquivo.innerHTML = nomes
+      // Cria um array a partir da quebra de linha do arquivo e armaneza-o no localStorage
+      storageNomesNaoSorteados = nomes.split('\n')
+      localStorage.setItem('storageNomesNaoSorteados', JSON.stringify(storageNomesNaoSorteados))
 
-      alert('>>>>> Upload realizado com sucesso! <<<<<')
+      alert('Upload realizado com sucesso!')
     } catch (err) {
-      alert('>>>>> Erro ao fazer o upload do arquivo. Por gentileza, tente novamente <<<<<')
+      alert('Erro ao fazer o upload do arquivo. Por gentileza, tente novamente')
       return false
     }
   }
@@ -55,33 +56,33 @@ async function carregarArquivo(file) {
 // Realiza o sorteio
 function realizarSorteio() {
   // Verifica se ainda há nome para sortear
-  if (nomesNaoSorteadosStorage.length == 0) {
-    alert(`>>>>> Faça o upload do arquivo para realizar o sorteio <<<<<`)
+  if (storageNomesNaoSorteados.length == 0) {
+    alert(`Faça o upload do arquivo para realizar o sorteio`)
     return false
   } else {
     // Gera um número aleatório de 0 até o total de nomes não sorteados
-    let indice = Math.floor(Math.random() * nomesNaoSorteadosStorage.length)
+    let indice = Math.floor(Math.random() * storageNomesNaoSorteados.length)
 
     // Adiciona o nome do sorteado no array de sorteados
-    nomesSorteadosStorage.push(nomesNaoSorteadosStorage[indice])
-    localStorage.setItem('nomesSorteadosStorage', JSON.stringify(nomesSorteadosStorage))
+    storageNomesSorteados.push(storageNomesNaoSorteados[indice])
+    localStorage.setItem('storageNomesSorteados', JSON.stringify(storageNomesSorteados))
 
-    // Retira o nome do sorteado do array de não sorteados
-    nomesNaoSorteadosStorage.splice(indice, 1)
-    localStorage.setItem('nomesNaoSorteadosStorage', JSON.stringify(nomesNaoSorteadosStorage))
+    // Retira o nome do sorteado do array storageNomesNaoSorteados
+    storageNomesNaoSorteados.splice(indice, 1)
+    localStorage.setItem('storageNomesNaoSorteados', JSON.stringify(storageNomesNaoSorteados))
   }
 }
 
 
-// Função responsável por apagar os dados do sorteio.
+// Apaga os dados do sorteio
 function apagarSorteio() {
-  let resposta = confirm('>>>>> Deseja apagar as informações do sorteio? <<<<<')
+  let resposta = confirm('Deseja apagar as informações do sorteio?')
 
   if (resposta) {
-    ocultar()
+    naoExibirElementos()
     localStorage.clear()
-    nomesArquivoStorage = null
-    nomesSorteadosStorage = []
-    nomesNaoSorteadosStorage = []
+    storageNomesArquivo = null
+    storageNomesSorteados = []
+    storageNomesNaoSorteados = []
   }
 }
