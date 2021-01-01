@@ -1,9 +1,9 @@
 @font-face {
-  font-family: "circle frame";
-  src: url("circle-frame-negative-mt.ttf");
+  font-family: "KG Defying Gravity";
+  src: url("KGDefyingGravity.ttf");
 }
 
-#ultimoNumeroSorteado {
-  font-family: "circle frame";
-  font-size: 60pt;
+#ultimoNomeSorteado {
+  font-family: "KG Defying Gravity";
+  font-size: 50pt;
 }

@@ -19,15 +19,32 @@
   <main class="mt-5">
     <div class="container text-center">
       <hr>
+      <table>
+        <tr>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            
+          </td>
+        </tr>
+      </table>
       <form id="sorteio" onsubmit="return realizarSorteio()">
         <h3>Faça o upload do arquivo contendo os nomes</h3>
-        <div class="input-group">
-          <input class="form-control form-control-lg" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
-          <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" value="Sortear">
-          <button class="btn btn-warning btn-lg font-weight-bolder" type="button" onclick="apagarSorteio()" id="btnApagar">Apagar</button>
-        </div>
+        <input class="form-control form-control-lg" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
+        <input class="btn btn-dark btn-lg font-weight-bolder" type="submit" id="btnSortear" value="Sortear">
+        <button class="btn btn-warning btn-lg font-weight-bolder" type="button" onclick="apagarSorteio()" id="btnApagar">Apagar</button>
       </form>
       <hr>
+      <div id="secaoNomesNaoSorteados">
+        <div class="mt-5">
+          <h5>Nomes Arquivo</h5>
+          <textarea id="nomesArquivo" rows="5" cols="50" readonly></textarea>
+        </div>
+      </div>
+
       <div id="secaoNomesSorteados">
         <hr>
         <div class="mt-5">
@@ -36,17 +53,9 @@
         </div>
         <hr>
         <div class="mt-5 text-dark">
-          <h3>Nomes Sorteados</h3>
-          <h3 id="nomesSorteados"></h3>
+          <h4><i><b>Nomes Sorteados</b></i></h4>
+          <h4 id="nomesSorteados"></h4>
         </div>
-      </div>
-      <div id="secaoNomesNaoSorteados">
-        <hr>
-        <div class="mt-5">
-          <h4>Nomes não Sorteados</h4>
-          <div id="nomesNaoSorteados"></div>
-        </div>
-        <hr>
       </div>
     </div>
   </main>

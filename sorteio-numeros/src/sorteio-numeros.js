@@ -4,49 +4,45 @@ let numerosStorage = localStorage.getItem('numerosStorage') ? JSON.parse(localSt
 
 
 // Obtém os elementos da página
-const limite = document.getElementById('limite')
-let btnApagar = document.getElementById('btnApagar')
-let secaoNumerosSorteados = document.getElementById('secaoNumerosSorteados')
-let ultimoNumeroSorteado = document.getElementById('ultimoNumeroSorteado')
-let numerosSorteados = document.getElementById('numerosSorteados')
+let limite = document.getElementById('limite')
 
 
 // Função responsável por limpar o campo Limite, ocultar o botão Apagar e a seção dos números sorteados
 function ocultarNumerosSorteados() {
   limite.value = ''
-  btnApagar.style.visibility = 'hidden'
-  secaoNumerosSorteados.style.display = 'none'
+  document.getElementById('secaoNumerosSorteados').style.display = 'none'
 }
 
 
-// Todas as vezes que a página é carregada, obtém os valores armazenados no localStorage para mantê-la atualizada
-if (numerosStorage.length > 0) {
+// Obtém os valores armazenados no localStorage para manter a página atualizada
+if (numerosStorage.length == 0) {
+  ocultarNumerosSorteados()
+} else {
   limite.value = limiteStorage
+
+  let ultimoNumeroSorteado = document.getElementById('ultimoNumeroSorteado')
   ultimoNumeroSorteado.innerHTML = numerosStorage.slice(-1)
 
-  // Lógica criada para permitir até 5 números sorteados por linha
+  // Exibe até 5 números sorteados por linha
+  let numerosSorteados = document.getElementById('numerosSorteados')
   for (let i = 0; i < numerosStorage.length; i++) {
     if ((i != 0) && (i % 5 == 0)) {
       numerosSorteados.innerHTML += `<br>${numerosStorage[i]}`
+    } else if (i == 0) {
+      numerosSorteados.innerHTML += numerosStorage[i]
     } else {
-      if (i == 0) {
-        numerosSorteados.innerHTML += numerosStorage[i]
-      } else {
         numerosSorteados.innerHTML += ` - ${numerosStorage[i]}`
-      }
     }
   }
-} else {
-  ocultarNumerosSorteados()
 }
 
 
 
-// Função responsável por realizar o sorteio
+// Realiza o sorteio
 function realizarSorteio() {
   // Verifica se a quantidade de números sorteados já alcançou o limite informado
   if (numerosStorage.length >= limite.value) {
-    alert(`O sorteio já alcançou o limite de números sorteados (${Number(limite.value)}). Para continuar aumente o limite.`)
+    alert(`>>>>> O sorteio já alcançou o limite de números sorteados (${Number(limite.value)}). Para continuar, aumente o limite. <<<<<`)
     return false
   } else {
     // Gera um número aleatório de 1 até o limite informado
@@ -71,7 +67,7 @@ function realizarSorteio() {
 
 // Função responsável por apagar os dados do sorteio
 function apagarSorteio() {
-  let resposta = confirm('Deseja apagar as informações do sorteio?')
+  let resposta = confirm('>>>>> Deseja apagar as informações do sorteio? <<<<<')
 
   if (resposta) {
     localStorage.clear()
