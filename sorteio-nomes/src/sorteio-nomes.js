@@ -1,10 +1,31 @@
 // Obtém valores armazenados no localStorage
 let storageNomesSorteados = localStorage.getItem('storageNomesSorteados') ? JSON.parse(localStorage.getItem('storageNomesSorteados')) : []
 let storageNomesNaoSorteados = localStorage.getItem('storageNomesNaoSorteados') ? JSON.parse(localStorage.getItem('storageNomesNaoSorteados')) : []
+let storageOpcaoSorteio = localStorage.getItem('storageOpcaoSorteio') ? localStorage.getItem('storageOpcaoSorteio') : false
 
 // Obtém elementos da página
 let textareaNomesArquivo = document.getElementById('textareaNomesArquivo')
 textareaNomesArquivo.innerHTML = localStorage.getItem('storageNomesArquivo')
+
+
+// Permite o radio permanecer selecionado com a opção escolhida
+if (storageOpcaoSorteio !== 'true') {
+  document.getElementById('opcNaoRepetirNome').checked = true
+} else {
+  document.getElementById('opcRepetirNome').checked = true
+}
+
+
+// Opção de resultado sem repetição de nomes
+function opcNaoRepetirNome() {
+  localStorage.setItem('storageOpcaoSorteio', false)
+}
+
+
+// Opção de resultado com repetição de nomes
+function opcRepetirNome() {
+  localStorage.setItem('storageOpcaoSorteio', true)
+}
 
 
 // Verifica se existe nome sorteado para exibir
@@ -68,9 +89,12 @@ function sortear() {
     storageNomesSorteados.push(storageNomesNaoSorteados[indice])
     localStorage.setItem('storageNomesSorteados', JSON.stringify(storageNomesSorteados))
 
-    // Retira o nome do sorteado do array storageNomesNaoSorteados
-    storageNomesNaoSorteados.splice(indice, 1)
-    localStorage.setItem('storageNomesNaoSorteados', JSON.stringify(storageNomesNaoSorteados))
+    // Verifica a opção escolhida para remover o nome sorteado do storage ou não remover
+    if (storageOpcaoSorteio !== 'true') {
+      // Retira o nome do sorteado do array storageNomesNaoSorteados
+      storageNomesNaoSorteados.splice(indice, 1)
+      localStorage.setItem('storageNomesNaoSorteados', JSON.stringify(storageNomesNaoSorteados))
+    }
   }
 }
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="src/sorteio-nomes.css">
   <title>Sorteio Nomes</title>
 </head>
@@ -13,12 +13,32 @@
   <div class="card text-dark bg-light mb-3 mt-3" style="max-width: 72rem;">
     <h3 class="card-header">Sorteio Nomes</h3>
     <div class="card-body">
-      <h5 class="card-title">Faça o upload do arquivo texto contendo os nomes</h5>
-      <form onsubmit="return sortear()">
-        <input class="file" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
-        <input class="btn btn-dark font-weight-bolder" type="submit" value="Sortear">
-        <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagar()">Apagar</button>
-      </form>
+      <div class="row">
+        <div class="col-12 col-md-10">
+          <h5 class="card-title">Faça o upload do arquivo texto contendo os nomes</h5>
+          <form onsubmit="return sortear()">
+            <input class="file" type="file" accept=".txt" onchange="carregarArquivo(this.files[0])">
+            <input class="btn btn-dark font-weight-bolder" type="submit" value="Sortear">
+            <button class="btn btn-warning font-weight-bolder" type="button" onclick="apagar()">Apagar</button>
+          </form>
+        </div>
+        <div class="col-12 col-md-2" style="text-align: center;">
+          <div>
+            <div class="form-check" onclick="opcNaoRepetirNome()">
+              <input class="form-check-input" name="opc" type="radio" id="opcNaoRepetirNome" checked>
+              <label class="form-check-label" for="opcNaoRepetirNome">
+                Não repetir nomes
+              </label>
+            </div>
+            <div class="form-check" onclick="opcRepetirNome()">
+              <input class="form-check-input" name="opc" type="radio" id="opcRepetirNome">
+              <label class="form-check-label" for="opcRepetirNome">
+                Repetir nomes
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card-body">
         <textarea class="form-control" placeholder="Nomes" readonly id="textareaNomesArquivo"></textarea>
       </div>
